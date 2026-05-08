@@ -61,6 +61,8 @@ export default class Count extends Component {
                 <button onClick={this.decrement}>-</button>
                 <button onClick={this.addIfOdd}>当前求和为奇数再加</button>
                 <button onClick={this.addIfAsync}>异步加</button>
+
+                <div>人数: {this.props.renshu}</div>
             </div>
         )
     }

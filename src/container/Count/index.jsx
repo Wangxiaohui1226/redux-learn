@@ -33,7 +33,7 @@ function mapDispatchToProps(dispatch) {
 
 }
 const Countcontainer=connect(
-   state=>({ count:state}) ,// 箭头函数优化原来的写法  映射状态
+   state=>({ count:state.count,renshu:state.person.length}) ,// 箭头函数优化原来的写法  映射状态
 
    // 映射操作状态的方法 可以写成对象形式
    {
