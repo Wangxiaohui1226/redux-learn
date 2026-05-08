@@ -8,7 +8,7 @@
 import {createStore,applyMiddleware} from 'redux'
 
 // 引入为count组件服务的reducer
-import countReducer  from './count_reducer'
+import countReducer  from './reducer/count_reducer'
 
 // 引入redux-thunk，用于支持异步action
 

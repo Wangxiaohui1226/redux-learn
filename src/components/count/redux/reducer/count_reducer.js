@@ -2,7 +2,7 @@
 1.该文件是用于创建一个为count组件服务的reducer,reducer本质就是一个函数
 2. reducer函数会接收2个参数，分别是：之前的状态prestate,动作对象action
 */ 
-import {INCREMENT,DECREMENT} from './constant'
+import {INCREMENT,DECREMENT} from '../constant'
 export default function countReducer (preState,action) {
     console.log("preState",preState)
     console.log("action",action)

@@ -1,51 +1,55 @@
 
 import  React,{Component} from 'react'
 import {Select} from 'antd'
+import store from './redux/store'
+import {createIncrementAction,createDecrementAction,createIncrementAsyncAction} from '../../components/count/redux/count_action'
 
 
 export default class Count extends Component {
-    constructor(props) {
+    constructor() {
         super()
      this.state={
         count:0,
         selectNumber:0
      }
-     console.log("打印了",props)
     }
     componentDidMount() {
         //检测redux中状态的变化，只要变化，就调用render，用于订阅
+        store.subscribe(()=>{
+            this.setState({})
+            
+        })
 
     }
     
     handleAdd=()=> {
         const {selectNumber}=this.state
-        this.props.jia(Number(selectNumber))
-      
+        store.dispatch(createIncrementAction(Number(selectNumber)))
     }
    decrement=()=>{
      const {selectNumber}=this.state
-    this.props.jian(Number(selectNumber))
-     
+        
+        store.dispatch(createDecrementAction(Number(selectNumber)))
        
    }
    addIfOdd=()=>{
      const {selectNumber}=this.state
-     if(this.props.count %2!==0) {
-         this.props.jia(Number(selectNumber))
+     const count=store.getState()
+     if(count%2!==0) {
+        store.dispatch(createIncrementAction(Number(selectNumber)))
      }
-
 
    }
     addIfAsync=()=>{
           const {selectNumber}=this.state
-          this.props.jiasync(Number(selectNumber))
+     store.dispatch(createIncrementAsyncAction(Number(selectNumber),500))
      
    }
     render() {
         return (
             <div>
                 <h1>
-                    当前求和为:{this.props.count}
+                    当前求和为:{store.getState()}
 
                 </h1>
                 <Select vlaue={this.state.selectNumber} onChange={(e)=>{

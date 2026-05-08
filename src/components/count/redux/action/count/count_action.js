@@ -2,8 +2,8 @@
  * 该文件专门为count组件生成action对象
  * 
  */
-import {INCREMENT,DECREMENT} from './constant'
-import store from './store'
+import {INCREMENT,DECREMENT} from '../../constant'
+import store from '../../store'
 
 // 同步action就是指action的值为object类型的一般对象
 export  function createIncrementAction(data) {
